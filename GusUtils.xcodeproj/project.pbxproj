@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC5091511378582800BCF230 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5091501378582800BCF230 /* Foundation.framework */; };
+		EC50915C1378582800BCF230 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC50915B1378582800BCF230 /* UIKit.framework */; };
+		EC50915D1378582800BCF230 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5091501378582800BCF230 /* Foundation.framework */; };
+		EC50915F1378582800BCF230 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC50915E1378582800BCF230 /* CoreGraphics.framework */; };
+		EC5091621378582800BCF230 /* libGusUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC50914D1378582800BCF230 /* libGusUtils.a */; };
+		EC5091681378582800BCF230 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC5091661378582800BCF230 /* InfoPlist.strings */; };
+		EC50916B1378582800BCF230 /* GusUtilsTests.h in Resources */ = {isa = PBXBuildFile; fileRef = EC50916A1378582800BCF230 /* GusUtilsTests.h */; };
+		EC50916D1378582800BCF230 /* GusUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC50916C1378582800BCF230 /* GusUtilsTests.m */; };
+		EC5091781378583B00BCF230 /* NSMutableDictionary+ImageMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5091761378583B00BCF230 /* NSMutableDictionary+ImageMetadata.h */; };
+		EC5091791378583B00BCF230 /* NSMutableDictionary+ImageMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5091771378583B00BCF230 /* NSMutableDictionary+ImageMetadata.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC5091601378582800BCF230 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC5091441378582800BCF230 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC50914C1378582800BCF230;
+			remoteInfo = GusUtils;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EC50914D1378582800BCF230 /* libGusUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGusUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC5091501378582800BCF230 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EC5091541378582800BCF230 /* GusUtils-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GusUtils-Prefix.pch"; sourceTree = "<group>"; };
+		EC50915A1378582800BCF230 /* GusUtilsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GusUtilsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC50915B1378582800BCF230 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EC50915E1378582800BCF230 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EC5091651378582800BCF230 /* GusUtilsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GusUtilsTests-Info.plist"; sourceTree = "<group>"; };
+		EC5091671378582800BCF230 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EC5091691378582800BCF230 /* GusUtilsTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GusUtilsTests-Prefix.pch"; sourceTree = "<group>"; };
+		EC50916A1378582800BCF230 /* GusUtilsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GusUtilsTests.h; sourceTree = "<group>"; };
+		EC50916C1378582800BCF230 /* GusUtilsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GusUtilsTests.m; sourceTree = "<group>"; };
+		EC5091761378583B00BCF230 /* NSMutableDictionary+ImageMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+ImageMetadata.h"; sourceTree = "<group>"; };
+		EC5091771378583B00BCF230 /* NSMutableDictionary+ImageMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+ImageMetadata.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC50914A1378582800BCF230 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC5091511378582800BCF230 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC5091561378582800BCF230 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC50915C1378582800BCF230 /* UIKit.framework in Frameworks */,
+				EC50915D1378582800BCF230 /* Foundation.framework in Frameworks */,
+				EC50915F1378582800BCF230 /* CoreGraphics.framework in Frameworks */,
+				EC5091621378582800BCF230 /* libGusUtils.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC5091421378582800BCF230 = {
+			isa = PBXGroup;
+			children = (
+				EC5091521378582800BCF230 /* GusUtils */,
+				EC5091631378582800BCF230 /* GusUtilsTests */,
+				EC50914F1378582800BCF230 /* Frameworks */,
+				EC50914E1378582800BCF230 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC50914E1378582800BCF230 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC50914D1378582800BCF230 /* libGusUtils.a */,
+				EC50915A1378582800BCF230 /* GusUtilsTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC50914F1378582800BCF230 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC5091501378582800BCF230 /* Foundation.framework */,
+				EC50915B1378582800BCF230 /* UIKit.framework */,
+				EC50915E1378582800BCF230 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC5091521378582800BCF230 /* GusUtils */ = {
+			isa = PBXGroup;
+			children = (
+				EC5091761378583B00BCF230 /* NSMutableDictionary+ImageMetadata.h */,
+				EC5091771378583B00BCF230 /* NSMutableDictionary+ImageMetadata.m */,
+				EC5091531378582800BCF230 /* Supporting Files */,
+			);
+			path = GusUtils;
+			sourceTree = "<group>";
+		};
+		EC5091531378582800BCF230 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC5091541378582800BCF230 /* GusUtils-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC5091631378582800BCF230 /* GusUtilsTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC50916A1378582800BCF230 /* GusUtilsTests.h */,
+				EC50916C1378582800BCF230 /* GusUtilsTests.m */,
+				EC5091641378582800BCF230 /* Supporting Files */,
+			);
+			path = GusUtilsTests;
+			sourceTree = "<group>";
+		};
+		EC5091641378582800BCF230 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC5091651378582800BCF230 /* GusUtilsTests-Info.plist */,
+				EC5091661378582800BCF230 /* InfoPlist.strings */,
+				EC5091691378582800BCF230 /* GusUtilsTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EC50914B1378582800BCF230 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC5091781378583B00BCF230 /* NSMutableDictionary+ImageMetadata.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		EC50914C1378582800BCF230 /* GusUtils */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC5091701378582800BCF230 /* Build configuration list for PBXNativeTarget "GusUtils" */;
+			buildPhases = (
+				EC5091491378582800BCF230 /* Sources */,
+				EC50914A1378582800BCF230 /* Frameworks */,
+				EC50914B1378582800BCF230 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GusUtils;
+			productName = GusUtils;
+			productReference = EC50914D1378582800BCF230 /* libGusUtils.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EC5091591378582800BCF230 /* GusUtilsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC5091731378582800BCF230 /* Build configuration list for PBXNativeTarget "GusUtilsTests" */;
+			buildPhases = (
+				EC5091551378582800BCF230 /* Sources */,
+				EC5091561378582800BCF230 /* Frameworks */,
+				EC5091571378582800BCF230 /* Resources */,
+				EC5091581378582800BCF230 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC5091611378582800BCF230 /* PBXTargetDependency */,
+			);
+			name = GusUtilsTests;
+			productName = GusUtilsTests;
+			productReference = EC50915A1378582800BCF230 /* GusUtilsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC5091441378582800BCF230 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "CodeCrop Software";
+			};
+			buildConfigurationList = EC5091471378582800BCF230 /* Build configuration list for PBXProject "GusUtils" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EC5091421378582800BCF230;
+			productRefGroup = EC50914E1378582800BCF230 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC50914C1378582800BCF230 /* GusUtils */,
+				EC5091591378582800BCF230 /* GusUtilsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC5091571378582800BCF230 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC5091681378582800BCF230 /* InfoPlist.strings in Resources */,
+				EC50916B1378582800BCF230 /* GusUtilsTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EC5091581378582800BCF230 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC5091491378582800BCF230 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC5091791378583B00BCF230 /* NSMutableDictionary+ImageMetadata.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC5091551378582800BCF230 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC50916D1378582800BCF230 /* GusUtilsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC5091611378582800BCF230 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC50914C1378582800BCF230 /* GusUtils */;
+			targetProxy = EC5091601378582800BCF230 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC5091661378582800BCF230 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC5091671378582800BCF230 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC50916E1378582800BCF230 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EC50916F1378582800BCF230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		EC5091711378582800BCF230 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/GusUtils.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GusUtils/GusUtils-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EC5091721378582800BCF230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/GusUtils.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GusUtils/GusUtils-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EC5091741378582800BCF230 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GusUtilsTests/GusUtilsTests-Prefix.pch";
+				INFOPLIST_FILE = "GusUtilsTests/GusUtilsTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		EC5091751378582800BCF230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GusUtilsTests/GusUtilsTests-Prefix.pch";
+				INFOPLIST_FILE = "GusUtilsTests/GusUtilsTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC5091471378582800BCF230 /* Build configuration list for PBXProject "GusUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC50916E1378582800BCF230 /* Debug */,
+				EC50916F1378582800BCF230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC5091701378582800BCF230 /* Build configuration list for PBXNativeTarget "GusUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC5091711378582800BCF230 /* Debug */,
+				EC5091721378582800BCF230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EC5091731378582800BCF230 /* Build configuration list for PBXNativeTarget "GusUtilsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC5091741378582800BCF230 /* Debug */,
+				EC5091751378582800BCF230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC5091441378582800BCF230 /* Project object */;
+}
