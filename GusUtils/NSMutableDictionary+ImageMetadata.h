@@ -5,10 +5,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreMedia/CoreMedia.h>
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
 
 @interface NSMutableDictionary (ImageMetadataCategory) 
+
+- (id)initWithImageSampleBuffer:(CMSampleBufferRef) imageDataSampleBuffer;
 
 - (void)setLocation:(CLLocation *)currentLocation;
 - (void)setUserComment:(NSString*)comment;

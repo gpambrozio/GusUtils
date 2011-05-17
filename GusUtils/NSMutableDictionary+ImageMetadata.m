@@ -19,8 +19,14 @@
 
 @implementation NSMutableDictionary (ImageMetadataCategory)
 
-// Mostly from here: http://stackoverflow.com/questions/3884060/need-help-in-saving-geotag-info-with-photo-on-ios4-1
+- (id)initWithImageSampleBuffer:(CMSampleBufferRef) imageDataSampleBuffer {
+    CFDictionaryRef metadataDict = CMCopyDictionaryOfAttachments(NULL, imageDataSampleBuffer, kCMAttachmentMode_ShouldPropagate);
+    self = [self initWithDictionary:(NSDictionary*)metadataDict];
+    CFRelease(metadataDict);
+    return self;
+}
 
+// Mostly from here: http://stackoverflow.com/questions/3884060/need-help-in-saving-geotag-info-with-photo-on-ios4-1
 - (void)setLocation:(CLLocation *)currentLocation {
     
     if (currentLocation) {
