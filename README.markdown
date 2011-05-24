@@ -4,7 +4,8 @@ This is a collections of helpfull classes and categories that I use for iOS deve
 
 Most of the stuff I'll include will have a blog post associated with it.
 
-* NSMUtableDictionary+ImageMetadata: Used to make it easy to add metadata (including geolocation) to images in iOS: http://blog.codecropper.com/2011/05/adding-metadata-to-ios-images-the-easy-way/
+* NSMUtableDictionary+ImageMetadata: Used to make it easy to add metadata (including geolocation) to images in iOS: http://blog.codecropper.com/2011/05/adding-metadata-to-ios-images-the-easy-way/ and http://blog.codecropper.com/2011/05/getting-metadata-from-images-on-ios
+
 
 # License
 
