@@ -6,6 +6,7 @@
 
 #import "NSMutableDictionary+ImageMetadata.h"
 #import <ImageIO/ImageIO.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 /* Add this before each category implementation, so we don't have to use -all_load or -force_load
  * to load object files from static libraries that only contain categories and no classes.
@@ -20,38 +21,93 @@
 @implementation NSMutableDictionary (ImageMetadataCategory)
 
 - (id)initWithImageSampleBuffer:(CMSampleBufferRef) imageDataSampleBuffer {
+    
+    // Dictionary of metadata is here
     CFDictionaryRef metadataDict = CMCopyDictionaryOfAttachments(NULL, imageDataSampleBuffer, kCMAttachmentMode_ShouldPropagate);
+    
+    // Just init with it....
     self = [self initWithDictionary:(NSDictionary*)metadataDict];
+    
+    // Release it
     CFRelease(metadataDict);
     return self;
 }
 
-// Mostly from here: http://stackoverflow.com/questions/3884060/need-help-in-saving-geotag-info-with-photo-on-ios4-1
-- (void)setLocation:(CLLocation *)currentLocation {
+- (id)initWithInfoFromImagePicker:(NSDictionary *)info {
     
-    if (currentLocation) {
+    if ((self = [self init])) {
         
-        CLLocationDegrees exifLatitude = currentLocation.coordinate.latitude;
-        CLLocationDegrees exifLongitude = currentLocation.coordinate.longitude;
+        // Key UIImagePickerControllerReferenceURL only exists in iOS 4.1
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.1f) {
+            
+            NSURL* assetURL = nil;
+            if ((assetURL = [info objectForKey:UIImagePickerControllerReferenceURL])) {
+            
+                ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+                [library assetForURL:assetURL 
+                         resultBlock:^(ALAsset *asset)  {
+                             NSDictionary *metadata = asset.defaultRepresentation.metadata;
+                             [self addEntriesFromDictionary:metadata];
+                         }
+                        failureBlock:^(NSError *error) {
+                        }];
+                [library autorelease];
+            }
+            else {
+                NSDictionary *metadata = [info objectForKey:UIImagePickerControllerMediaMetadata];
+                if (metadata)
+                    [self addEntriesFromDictionary:metadata];
+            }
+        }
+    }
+    
+    return self;
+}
+
+- (id)initFromAssetURL:(NSURL*)assetURL {
+
+    if ((self = [self init])) {
+        NSURL* assetURL = nil;
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library assetForURL:assetURL 
+                 resultBlock:^(ALAsset *asset)  {
+                     NSDictionary *metadata = asset.defaultRepresentation.metadata;
+                     [self addEntriesFromDictionary:metadata];
+                 }
+                failureBlock:^(NSError *error) {
+                }];
+        [library autorelease];
+    }
+    
+    return self;
+}
+
+// Mostly from here: http://stackoverflow.com/questions/3884060/need-help-in-saving-geotag-info-with-photo-on-ios4-1
+- (void)setLocation:(CLLocation *)location {
+    
+    if (location) {
+        
+        CLLocationDegrees exifLatitude  = location.coordinate.latitude;
+        CLLocationDegrees exifLongitude = location.coordinate.longitude;
 
         NSString *latRef;
         NSString *lngRef;
         if (exifLatitude < 0.0) {
-            exifLatitude = exifLatitude * -1;
+            exifLatitude = exifLatitude * -1.0f;
             latRef = @"S";
         } else {
             latRef = @"N";
         }
         
         if (exifLongitude < 0.0) {
-            exifLongitude = exifLongitude * -1;
+            exifLongitude = exifLongitude * -1.0f;
             lngRef = @"W";
         } else {
             lngRef = @"E";
         }
         
         NSDictionary* locDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 currentLocation.timestamp, (NSString*)kCGImagePropertyGPSTimeStamp,
+                                 location.timestamp, (NSString*)kCGImagePropertyGPSTimeStamp,
                                  latRef, (NSString*)kCGImagePropertyGPSLatitudeRef,
                                  [NSNumber numberWithFloat:exifLatitude], (NSString*)kCGImagePropertyGPSLatitude,
                                  lngRef, (NSString*)kCGImagePropertyGPSLongitudeRef,
@@ -61,6 +117,27 @@
         [self setObject:locDict forKey:(NSString*)kCGImagePropertyGPSDictionary];
         [locDict release];    
     }
+}
+
+- (CLLocation*)location {
+    NSDictionary *locDict = [self objectForKey:(NSString*)kCGImagePropertyGPSDictionary];
+    if (locDict) {
+        
+        CLLocationDegrees lat = [[locDict objectForKey:(NSString*)kCGImagePropertyGPSLatitude] floatValue];
+        CLLocationDegrees lng = [[locDict objectForKey:(NSString*)kCGImagePropertyGPSLongitude] floatValue];
+        NSString *latRef = [locDict objectForKey:(NSString*)kCGImagePropertyGPSLatitudeRef];
+        NSString *lngRef = [locDict objectForKey:(NSString*)kCGImagePropertyGPSLongitudeRef];
+        
+        if ([@"S" isEqualToString:latRef])
+            lat *= -1.0f;
+        if ([@"W" isEqualToString:lngRef])
+            lng *= -1.0f;
+        
+        CLLocation *location = [[[CLLocation alloc] initWithLatitude:lat longitude:lng] autorelease];
+        return location;
+    }
+    
+    return nil;
 }
 
 - (NSMutableDictionary *)dictionaryForKey:(CFStringRef)key {
@@ -116,6 +193,11 @@
 - (void)setKeywords:(NSString*)keywords {
     [IPTC_DICT setObject:keywords forKey:(NSString*)kCGImagePropertyIPTCKeywords];
 }
+
+- (void)setDigitalZoom:(CGFloat)zoom {
+    [EXIF_DICT setObject:[NSNumber numberWithFloat:zoom] forKey:(NSString*)kCGImagePropertyExifDigitalZoomRatio];
+}
+
 
 /* The intended display orientation of the image. If present, the value 
  * of this key is a CFNumberRef with the same value as defined by the 
