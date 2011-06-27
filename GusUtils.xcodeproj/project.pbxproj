@@ -390,6 +390,7 @@
 				EC5091721378582800BCF230 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC5091731378582800BCF230 /* Build configuration list for PBXNativeTarget "GusUtilsTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +399,7 @@
 				EC5091751378582800BCF230 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
