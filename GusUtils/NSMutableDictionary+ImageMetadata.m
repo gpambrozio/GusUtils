@@ -20,6 +20,8 @@
 
 @implementation NSMutableDictionary (ImageMetadataCategory)
 
+@dynamic trueHeading;
+
 - (id)initWithImageSampleBuffer:(CMSampleBufferRef) imageDataSampleBuffer {
     
     // Dictionary of metadata is here
@@ -119,6 +121,24 @@
     }
 }
 
+// Set heading while preserving location metadata, if it exists.
+- (void)setHeading:(CLHeading *)locatioHeading {
+    
+    if (locatioHeading) {
+        
+        CLLocationDirection trueDirection = locatioHeading.trueHeading;
+        NSMutableDictionary *locDict = [[NSMutableDictionary alloc] init];
+        if ([self objectForKey:(NSString*)kCGImagePropertyGPSDictionary]) {
+            [locDict addEntriesFromDictionary:[self objectForKey:(NSString*)kCGImagePropertyGPSDictionary]];
+        }
+        [locDict setObject:@"T" forKey:(NSString*)kCGImagePropertyGPSImgDirectionRef];
+        [locDict setObject:[NSNumber numberWithFloat:trueDirection] forKey:(NSString*)kCGImagePropertyGPSImgDirection];
+
+        [self setObject:locDict forKey:(NSString*)kCGImagePropertyGPSDictionary];
+        [locDict release];    
+    }
+}
+
 - (CLLocation*)location {
     NSDictionary *locDict = [self objectForKey:(NSString*)kCGImagePropertyGPSDictionary];
     if (locDict) {
@@ -138,6 +158,16 @@
     }
     
     return nil;
+}
+
+- (CLLocationDirection)trueHeading {
+    NSDictionary *locDict = [self objectForKey:(NSString*)kCGImagePropertyGPSDictionary];
+    CLLocationDirection heading = 0;
+    if (locDict) {
+        heading = [[locDict objectForKey:(NSString*)kCGImagePropertyGPSImgDirection] doubleValue];
+    }
+    
+    return heading;
 }
 
 - (NSMutableDictionary *)dictionaryForKey:(CFStringRef)key {

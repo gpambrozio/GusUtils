@@ -45,7 +45,9 @@
 - (void)setKeywords:(NSString*)keywords;
 - (void)setImageOrientarion:(UIImageOrientation)orientation;
 - (void)setDigitalZoom:(CGFloat)zoom;
+- (void)setHeading:(CLHeading*)heading;
 
 @property (nonatomic, assign) CLLocation *location;
+@property (nonatomic, assign) CLLocationDirection trueHeading;
 
 @end
