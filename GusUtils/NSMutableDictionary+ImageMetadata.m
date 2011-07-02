@@ -117,6 +117,8 @@
         [locDict setObject:[NSNumber numberWithFloat:exifLatitude] forKey:(NSString*)kCGImagePropertyGPSLatitude];
         [locDict setObject:lngRef forKey:(NSString*)kCGImagePropertyGPSLongitudeRef];
         [locDict setObject:[NSNumber numberWithFloat:exifLongitude] forKey:(NSString*)kCGImagePropertyGPSLongitude];
+        [locDict setObject:[NSNumber numberWithFloat:location.horizontalAccuracy] forKey:(NSString*)kCGImagePropertyGPSDOP];
+        [locDict setObject:[NSNumber numberWithFloat:location.altitude] forKey:(NSString*)kCGImagePropertyGPSAltitude];
         
         [self setObject:locDict forKey:(NSString*)kCGImagePropertyGPSDictionary];
         [locDict release];    
