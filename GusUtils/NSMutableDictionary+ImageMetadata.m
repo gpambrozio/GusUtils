@@ -22,6 +22,19 @@
 
 @dynamic trueHeading;
 
+- (NSString *)getUTCFormattedDate:(NSDate *)localDate {
+
+    static NSDateFormatter *dateFormatter;
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+        [dateFormatter setTimeZone:timeZone];
+        [dateFormatter setDateFormat:@"yyyy:MM:dd HH:mm:ss"];
+    }
+    NSString *dateString = [dateFormatter stringFromDate:localDate];
+    return dateString;
+}
+
 - (id)initWithImageSampleBuffer:(CMSampleBufferRef) imageDataSampleBuffer {
     
     // Dictionary of metadata is here
@@ -112,7 +125,7 @@
         if ([self objectForKey:(NSString*)kCGImagePropertyGPSDictionary]) {
             [locDict addEntriesFromDictionary:[self objectForKey:(NSString*)kCGImagePropertyGPSDictionary]];
         }
-        [locDict setObject:location.timestamp forKey:(NSString*)kCGImagePropertyGPSTimeStamp];
+        [locDict setObject:[self getUTCFormattedDate:location.timestamp] forKey:(NSString*)kCGImagePropertyGPSTimeStamp];
         [locDict setObject:latRef forKey:(NSString*)kCGImagePropertyGPSLatitudeRef];
         [locDict setObject:[NSNumber numberWithFloat:exifLatitude] forKey:(NSString*)kCGImagePropertyGPSLatitude];
         [locDict setObject:lngRef forKey:(NSString*)kCGImagePropertyGPSLongitudeRef];
@@ -205,12 +218,14 @@
 }
 
 - (void)setDateOriginal:(NSDate *)date {
-    [EXIF_DICT setObject:date forKey:(NSString*)kCGImagePropertyExifDateTimeOriginal];
-    [TIFF_DICT setObject:date forKey:(NSString*)kCGImagePropertyTIFFDateTime];
+    NSString *dateString = [self getUTCFormattedDate:date];
+    [EXIF_DICT setObject:dateString forKey:(NSString*)kCGImagePropertyExifDateTimeOriginal];
+    [TIFF_DICT setObject:dateString forKey:(NSString*)kCGImagePropertyTIFFDateTime];
 }
 
 - (void)setDateDigitized:(NSDate *)date {
-    [EXIF_DICT setObject:date forKey:(NSString*)kCGImagePropertyExifDateTimeDigitized];
+    NSString *dateString = [self getUTCFormattedDate:date];
+    [EXIF_DICT setObject:dateString forKey:(NSString*)kCGImagePropertyExifDateTimeDigitized];
 }
 
 - (void)setMake:(NSString*)make model:(NSString*)model software:(NSString*)software {
