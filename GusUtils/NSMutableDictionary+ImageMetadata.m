@@ -14,7 +14,7 @@
  * See http://developer.apple.com/library/mac/#qa/qa2006/qa1490.html for more info.
  */
 
-@interface FIX_CATEGORY_BUG_ImageMetadataCategory @end
+@interface FIX_CATEGORY_BUG_ImageMetadataCategory : NSObject  @end
 @implementation FIX_CATEGORY_BUG_ImageMetadataCategory @end
 
 
