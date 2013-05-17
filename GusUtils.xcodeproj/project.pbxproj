@@ -191,6 +191,7 @@
 		EC5091441378582800BCF230 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "CodeCrop Software";
 			};
 			buildConfigurationList = EC5091471378582800BCF230 /* Build configuration list for PBXProject "GusUtils" */;
@@ -314,6 +315,7 @@
 				DSTROOT = /tmp/GusUtils.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GusUtils/GusUtils-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -326,6 +328,7 @@
 				DSTROOT = /tmp/GusUtils.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GusUtils/GusUtils-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -341,6 +344,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GusUtilsTests/GusUtilsTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "GusUtilsTests/GusUtilsTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -361,6 +365,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GusUtilsTests/GusUtilsTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "GusUtilsTests/GusUtilsTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
