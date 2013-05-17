@@ -262,7 +262,7 @@
  * If not present, a value of 1 is assumed. */ 
 
 // Reference: http://sylvana.net/jpegcrop/exif_orientation.html
-- (void)setImageOrientarion:(UIImageOrientation)orientation {
+- (void)setImageOrientation:(UIImageOrientation)orientation {
     int o = 1;
     switch (orientation) {
         case UIImageOrientationUp:
