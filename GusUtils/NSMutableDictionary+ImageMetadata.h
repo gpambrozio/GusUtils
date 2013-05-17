@@ -43,11 +43,11 @@
 - (void)setMake:(NSString*)make model:(NSString*)model software:(NSString*)software;
 - (void)setDescription:(NSString*)description;
 - (void)setKeywords:(NSString*)keywords;
-- (void)setImageOrientarion:(UIImageOrientation)orientation;
+- (void)setImageOrientation:(UIImageOrientation)orientation;
 - (void)setDigitalZoom:(CGFloat)zoom;
 - (void)setHeading:(CLHeading*)heading;
 
-@property (nonatomic, assign) CLLocation *location;
+@property (nonatomic, retain) CLLocation *location;
 @property (nonatomic, assign) CLLocationDirection trueHeading;
 
 @end
