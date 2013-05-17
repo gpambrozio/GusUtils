@@ -10,7 +10,6 @@
 
 @implementation NSMutableDictionary (ImageMetadataCategory)
 
-@dynamic trueHeading;
 @dynamic location;
 
 - (NSString *)getUTCFormattedDate:(NSDate *)localDate {
@@ -129,21 +128,23 @@
 }
 
 // Set heading while preserving location metadata, if it exists.
-- (void)setHeading:(CLHeading *)locatioHeading {
+- (void)setHeading:(CLHeading *)locationHeading {
     
-    if (locatioHeading) {
-        
-        CLLocationDirection trueDirection = locatioHeading.trueHeading;
-        NSMutableDictionary *locDict = [[NSMutableDictionary alloc] init];
-        if ([self objectForKey:(NSString*)kCGImagePropertyGPSDictionary]) {
-            [locDict addEntriesFromDictionary:[self objectForKey:(NSString*)kCGImagePropertyGPSDictionary]];
-        }
-        [locDict setObject:@"T" forKey:(NSString*)kCGImagePropertyGPSImgDirectionRef];
-        [locDict setObject:[NSNumber numberWithFloat:trueDirection] forKey:(NSString*)kCGImagePropertyGPSImgDirection];
-
-        [self setObject:locDict forKey:(NSString*)kCGImagePropertyGPSDictionary];
-        [locDict release];    
+    if (locationHeading) {
+        [self setTrueHeading:locationHeading.trueHeading];
     }
+}
+
+- (void)setTrueHeading:(CLLocationDirection)trueHeading {
+    NSMutableDictionary *locDict = [[NSMutableDictionary alloc] init];
+    if ([self objectForKey:(NSString*)kCGImagePropertyGPSDictionary]) {
+        [locDict addEntriesFromDictionary:[self objectForKey:(NSString*)kCGImagePropertyGPSDictionary]];
+    }
+    [locDict setObject:@"T" forKey:(NSString*)kCGImagePropertyGPSImgDirectionRef];
+    [locDict setObject:[NSNumber numberWithFloat:trueHeading] forKey:(NSString*)kCGImagePropertyGPSImgDirection];
+    
+    [self setObject:locDict forKey:(NSString*)kCGImagePropertyGPSDictionary];
+    [locDict release];
 }
 
 - (CLLocation*)location {
