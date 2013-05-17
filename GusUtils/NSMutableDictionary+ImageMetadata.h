@@ -47,7 +47,7 @@
 - (void)setDigitalZoom:(CGFloat)zoom;
 - (void)setHeading:(CLHeading*)heading;
 
-@property (nonatomic, assign) CLLocation *location;
+@property (nonatomic, retain) CLLocation *location;
 @property (nonatomic, assign) CLLocationDirection trueHeading;
 
 @end

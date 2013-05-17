@@ -8,19 +8,10 @@
 #import <ImageIO/ImageIO.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-/* Add this before each category implementation, so we don't have to use -all_load or -force_load
- * to load object files from static libraries that only contain categories and no classes.
- *
- * See http://developer.apple.com/library/mac/#qa/qa2006/qa1490.html for more info.
- */
-
-@interface FIX_CATEGORY_BUG_ImageMetadataCategory @end
-@implementation FIX_CATEGORY_BUG_ImageMetadataCategory @end
-
-
 @implementation NSMutableDictionary (ImageMetadataCategory)
 
 @dynamic trueHeading;
+@dynamic location;
 
 - (NSString *)getUTCFormattedDate:(NSDate *)localDate {
 
@@ -82,7 +73,6 @@
 - (id)initFromAssetURL:(NSURL*)assetURL {
 
     if ((self = [self init])) {
-        NSURL* assetURL = nil;
         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
         [library assetForURL:assetURL 
                  resultBlock:^(ALAsset *asset)  {
