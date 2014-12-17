@@ -13,12 +13,9 @@
 @dynamic location;
 
 - (NSString *)getUTCFormattedDate:(NSDate *)localDate {
-
-    static NSDateFormatter *dateFormatter;
+    static NSDateFormatter *dateFormatter = nil;
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-        [dateFormatter setTimeZone:timeZone];
         [dateFormatter setDateFormat:@"yyyy:MM:dd HH:mm:ss"];
     }
     NSString *dateString = [dateFormatter stringFromDate:localDate];
