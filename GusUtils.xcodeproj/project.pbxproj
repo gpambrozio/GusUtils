@@ -15,7 +15,6 @@
 		EC5091681378582800BCF230 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC5091661378582800BCF230 /* InfoPlist.strings */; };
 		EC50916B1378582800BCF230 /* GusUtilsTests.h in Resources */ = {isa = PBXBuildFile; fileRef = EC50916A1378582800BCF230 /* GusUtilsTests.h */; };
 		EC50916D1378582800BCF230 /* GusUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC50916C1378582800BCF230 /* GusUtilsTests.m */; };
-		EC5091781378583B00BCF230 /* NSMutableDictionary+ImageMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5091761378583B00BCF230 /* NSMutableDictionary+ImageMetadata.h */; };
 		EC5091791378583B00BCF230 /* NSMutableDictionary+ImageMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5091771378583B00BCF230 /* NSMutableDictionary+ImageMetadata.m */; };
 /* End PBXBuildFile section */
 
@@ -142,7 +141,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC5091781378583B00BCF230 /* NSMutableDictionary+ImageMetadata.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +197,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = EC5091421378582800BCF230;
